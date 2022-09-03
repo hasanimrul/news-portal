@@ -1,63 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- tailwind cdn -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- daisy ui -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
-    <!-- font awesome -->
-    <script src="https://kit.fontawesome.com/f6e5250109.js" crossorigin="anonymous"></script>
-    <title>Update News 24hrs</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- tailwind cdn -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- daisy ui -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/f6e5250109.js" crossorigin="anonymous"></script>
+  <title>Update News 24hrs</title>
 </head>
 
 <!-- body start -->
+
 <body class="container mx-auto text-white	">
-<!-- header start -->
-    <header>
-      <!-- navbar start -->
-        <section id="nav-container" class="container">
-            <div class="navbar bg-base-100">
-                <div class="flex-1">
-                  <a class="btn btn-ghost normal-case text-xl font-serif">News Update 24hrs</a>
-                </div>
-                <div class="flex-none gap-2">
-                    <ul class="menu menu-horizontal p-0">
-                        <li><a>News</a></li>
-                        <li><a>Blog</a></li>
-                      </ul>
-                  <div class="dropdown dropdown-end">
-                    <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-                      <div class="w-10 rounded-full">
-                        <img src="https://placeimg.com/80/80/people" />
-                      </div>
-                    </label>
-                  </div>
-                </div>
+  <!-- header start -->
+  <header>
+    <!-- navbar start -->
+    <section id="nav-container" class="container">
+      <div class="navbar bg-base-100">
+        <div class="flex-1">
+          <a class="btn btn-ghost normal-case text-xl font-serif">News Update 24/7</a>
+        </div>
+        <div class="flex-none gap-2">
+          <ul class="menu menu-horizontal p-0">
+            <li><a>News</a></li>
+            <li><a>Blog</a></li>
+          </ul>
+          <div class="dropdown dropdown-end">
+            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+              <div class="w-10 rounded-full">
+                <img src="https://placeimg.com/80/80/people" />
               </div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
 
-        <section id="menu-item" class="mx-auto">
+      <section id="menu-item" class="container mx-auto">
 
-        </section>
-        <!-- navbar end -->
-    </header>
-    <!-- header end -->
+      </section>
+      <!-- navbar end -->
+  </header>
+  <!-- header end -->
 
-    <!-- main section start -->
-    <main>
-        <section id="news-container">
+  <!-- main section start -->
+  <main>
+<section>
+  <h2 class="text-xl container mx-auto"><span id="items-number">0</span> items found.</h2>
+</section>
 
-        </section>
-    </main>
-    <!-- main section end -->
-    
-    <script src="js/app.js"></script>
+    <section id="spinner-section" class="flex justify-center items-center hidden">
+        <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-white-900"></div>
+    </section>
+    <section id="no-data" class="text-center text-5xl mt-20 hidden">
+      <h1>No data found!</h1>
+    </section>
+    <section id="news-container">
 
+    </section>
+  </main>
+  <!-- main section end -->
 
-    
-    
+  <script src="js/app.js"></script>
 </body>
 <!-- body end -->
+
+<footer class=" bottom-0 text-center my-20">
+  <div class="divider"></div>
+  <p>Copyright 2022 News Update 24/7</p>
+</footer>
+
 </html>
