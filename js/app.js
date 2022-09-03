@@ -63,14 +63,14 @@ const displayNews = (items) => {
                   <P>${item.author.published_date ? item.author.published_date : 'no data found'}</P>
                 </div>
                 <p><i class="fa-regular fa-eye"></i> ${item.total_view ? item.total_view : 'no data found'}</p>
-                <div class= "flex lg:flex-row md:flex-row gap-2 ">
+                <div class= "flex flex-row gap-2 text-center">
                   <p> <i class ="fa-solid fa-star"> </i></p>
                   <p> <i class ="fa-solid fa-star"> </i></p>
                   <p> <i class ="fa-solid fa-star"> </i></p>
                   <p> <i class ="fa-solid fa-star"> </i></p>
                   <p> <i class ="fa-solid fa-star-half-stroke"> </i></p>
                 </div>
-                <label for="my-modal-5"><button  class="btn btn-primary modal-button"onclick= "loadItemDetails('${item._id} >Details</button></label>
+                <p class = "text-right text-5xl"><i class="fa-solid fa-arrow-right"></i></p>
             </div>
       </div>
   </div>
