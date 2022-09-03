@@ -28,29 +28,33 @@ const displayNews = (items) => {
     const newsContainer = document.getElementById("news-container");
     // newsContainer.textContent = '';
     const newsDiv = document.createElement("div");
-    newsDiv.classList.add("border", "border-2", "mt-2");
+    newsDiv.classList.add("card","border", "border-2","border-slate-600", "mt-2");
     newsDiv.innerHTML = `
     <div class="card card-side bg-base-100 shadow-xl">
-                <figure><img class="w-100" src="${
-                  item.image_url
-                }" alt="Movie"></figure>
-                <div class="card-body">
-                  <h2 class="card-title">${item.title}</h2>
-                  <p>${item.details.slice(0, 300)}</p>
-                  <div class = "flex flex-row gap-4">
-                      <img class = "w-10 h-10 rounded-full" src="${ item.author.img}"/>
-                    <div>
-                      <P>${item.author.name}</P>
-                      <P>${item.author.published_date}</P>
-                    </div>
-                    
-                  </div>
+      <figure><img class="w-60 h-60 p-4" src="${item.image_url}"></figure>
+      <div class="card-body">
+        <h2 class="card-title">${item.title}</h2>
+        <p>${item.details.slice(0, 300)}</p>
+            <div class = "flex flex-row gap-4">
+              <img class = "w-10 h-10 rounded-full" src="${ item.author.img}"/>
+                <div>
+                  <P>${item.author.name}</P>
+                  <P>${item.author.published_date}</P>
                 </div>
-                  <div class="card-actions justify-end">
-                    <button class="btn btn-primary">Watch</button>
-                  </div>
+                <p><i class="fa-regular fa-eye"></i> ${item.total_view}</p>
+                <div class= "flex gap-2">
+                  <p> <i class ="fa-solid fa-star"> </i></p>
+                  <p> <i class ="fa-solid fa-star"> </i></p>
+                  <p> <i class ="fa-solid fa-star"> </i></p>
+                  <p> <i class ="fa-solid fa-star"> </i></p>
+                  <p> <i class ="fa-solid fa-star-half-stroke"> </i></p>
                 </div>
+                <p class = "text-right"><i class="fa fa-arrow-right"></i></p>
+                
             </div>
+
+      </div>
+  </div>
     `;
     newsContainer.appendChild(newsDiv);
   });
