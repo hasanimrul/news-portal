@@ -12,7 +12,7 @@ const displayCategory = (items) => {
     menuDiv.classList.add("menu", "menu-horizontal", "max-auto", "drop-shadow")
     const menuUl = document.createElement("ul");
     menuUl.innerHTML = `
-      <li><a onclick="loadNews('${item.category_id}')">${item.category_name}</a></li>
+      <li><a onclick="loadNews('${item.category_id}','${item.category_name}')">${item.category_name}</a></li>
         `;
     menuDiv.appendChild(menuUl);
     menuItem.appendChild(menuDiv);
@@ -20,7 +20,7 @@ const displayCategory = (items) => {
   });
 };
 
-const loadNews = (id) => {
+const loadNews = (id, name) => {
   toggleSpinner(true);
   fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then((res) => res.json())
