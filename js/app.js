@@ -1,7 +1,8 @@
 const loadCategory = () => {
   fetch(`https://openapi.programming-hero.com/api/news/categories`)
     .then((res) => res.json())
-    .then((data) => displayCategory(data.data.news_category));
+    .then((data) => displayCategory(data.data.news_category))
+    .catch(error => console.log(error))
 };
 
 const displayCategory = (items) => {
@@ -23,7 +24,8 @@ const loadNews = (id) => {
   toggleSpinner(true);
   fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then((res) => res.json())
-    .then((data) => displayNews(data.data));
+    .then((data) => displayNews(data.data))
+    .catch(error => console.log(error))
 };
 
 const displayNews = (items) => {
@@ -62,9 +64,7 @@ const displayNews = (items) => {
                   <p> <i class ="fa-solid fa-star"> </i></p>
                   <p> <i class ="fa-solid fa-star-half-stroke"> </i></p>
                 </div>
-                <label for="my-modal" class="btn modal-button">
-                  <p class = "text-right" onclick= "loadItemDetails('${item._id}')"><i class="fa fa-arrow-right"></i></p>
-                </label>
+                <label for="my-modal-5"><button  class="btn btn-primary modal-button"onclick= "loadItemDetails('${item._id} >Details</button></label>
             </div>
       </div>
   </div>
@@ -93,34 +93,24 @@ const loadItemDetails = (newsId) =>{
   fetch(`https://openapi.programming-hero.com/api/news/${newsId}`)
   .then(res => res.json())
   .then(data => showItemDetails(data.data))
-}
+  .catch(error => console.log(error))
+};
 
 const showItemDetails = (newsDetails) =>{
   newsDetails.forEach(news =>{
     console.log(news);
     const modal = document.getElementById('modal');
     modal.innerHTML = `
-    <input type="checkbox" id="my-modal" class="modal-toggle" />
-    <div class="modal">
-      <div class="modal-box w-11/12 max-w-5xl">
-        <div class="card card-side bg-base-100 shadow-xl">
-          <figure><img class="w-60 h-60 p-4" src="${news.image_url}"></figure>
-          <div class="card-body">
-            <h2 class="card-title">${news.title}</h2>
-            <p>${news.details.slice(0, 500)}...</p>
-                <div class = "flex flex-row gap-4">
-                  <img class = "w-10 h-10 rounded-full" src="${ news.author.img}"/>
-                    <div>
-                      <P>${news.author.name ? news.author.name : 'No data found'}</P>
-                    </div>
-                </div>
-          </div>
-      </div>
-        <div class="modal-action">
-          <label for="my-modal" class="btn">Yay!</label>
-        </div>
-      </div>
+    <input type="checkbox" id="my-modal-5" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box w-11/12 max-w-5xl">
+    <h3 class="font-bold text-lg">Congratulations random Internet user!</h3>
+    <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+    <div class="modal-action">
+      <label for="my-modal-5" class="btn">Yay!</label>
     </div>
+  </div>
+</div>
         `;
   })
   
