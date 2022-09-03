@@ -29,16 +29,12 @@ const loadNews = (id) => {
 };
 
 const displayNews = (items) => {
-  
+
   items.sort(function(a,b){
     return a.total_view - b.total_view;
   })
-  
-  items.forEach((item) => {
-    console.log(item);
-    const itemsNumber = document.getElementById('items-number')
-    itemsNumber.innerText = items.length;
-    const newsContainer = document.getElementById("news-container");
+  const newsContainer = document.getElementById("news-container");
+    newsContainer.innerHTML = '';
     const noData = document.getElementById('no-data');
     if(items.length === 0){
       noData.classList.remove('hidden');
@@ -46,6 +42,12 @@ const displayNews = (items) => {
     else{
       noData.classList.add('hidden');
     }
+    const itemsNumber = document.getElementById('items-number')
+    itemsNumber.innerText = items.length;
+
+  items.forEach((item) => {
+    console.log(item);
+    
     const newsDiv = document.createElement("div");
     newsDiv.classList.add("card","border", "border-2","border-slate-600", "mt-2");
     newsDiv.innerHTML = `
@@ -61,7 +63,7 @@ const displayNews = (items) => {
                   <P>${item.author.published_date ? item.author.published_date : 'no data found'}</P>
                 </div>
                 <p><i class="fa-regular fa-eye"></i> ${item.total_view ? item.total_view : 'no data found'}</p>
-                <div class= "flex gap-2">
+                <div class= "flex lg:flex-row md:flex-row gap-2 ">
                   <p> <i class ="fa-solid fa-star"> </i></p>
                   <p> <i class ="fa-solid fa-star"> </i></p>
                   <p> <i class ="fa-solid fa-star"> </i></p>
@@ -105,19 +107,11 @@ const showItemDetails = (newsDetails) =>{
     console.log(news);
     const modal = document.getElementById('modal');
     modal.innerHTML = `
-    <input type="checkbox" id="my-modal-5" class="modal-toggle" />
-<div class="modal">
-  <div class="modal-box w-11/12 max-w-5xl">
-    <h3 class="font-bold text-lg">Congratulations random Internet user!</h3>
-    <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-    <div class="modal-action">
-      <label for="my-modal-5" class="btn">Yay!</label>
-    </div>
-  </div>
-</div>
+    
         `;
   })
   
 }
 
 loadCategory();
+loadNews('08');
