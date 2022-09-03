@@ -29,7 +29,6 @@ const loadNews = (id) => {
 const displayNews = (items) => {
   
   items.forEach((item) => {
-    console.log(items.length);
     console.log(item);
     const itemsNumber = document.getElementById('items-number')
     itemsNumber.innerText = items.length;
@@ -63,15 +62,22 @@ const displayNews = (items) => {
                   <p> <i class ="fa-solid fa-star"> </i></p>
                   <p> <i class ="fa-solid fa-star-half-stroke"> </i></p>
                 </div>
-                <p class = "text-right"><i class="fa fa-arrow-right"></i></p>
+                <label for="my-modal" class="btn modal-button">
+                  <p class = "text-right" onclick= "loadItemDetails('${item._id}')"><i class="fa fa-arrow-right"></i></p>
+                </label>
             </div>
       </div>
   </div>
     `;
     newsContainer.appendChild(newsDiv);
+    
   });
+
   toggleSpinner(false);
 };
+
+
+
 
 const toggleSpinner = isLoading =>{
   const spinnerSection = document.getElementById('spinner-section');
@@ -81,6 +87,43 @@ const toggleSpinner = isLoading =>{
   else{
     spinnerSection.classList.add('hidden');
   }
+}
+
+const loadItemDetails = (newsId) =>{
+  fetch(`https://openapi.programming-hero.com/api/news/${newsId}`)
+  .then(res => res.json())
+  .then(data => showItemDetails(data.data))
+}
+
+const showItemDetails = (newsDetails) =>{
+  newsDetails.forEach(news =>{
+    console.log(news);
+    const modal = document.getElementById('modal');
+    modal.innerHTML = `
+    <input type="checkbox" id="my-modal" class="modal-toggle" />
+    <div class="modal">
+      <div class="modal-box w-11/12 max-w-5xl">
+        <div class="card card-side bg-base-100 shadow-xl">
+          <figure><img class="w-60 h-60 p-4" src="${news.image_url}"></figure>
+          <div class="card-body">
+            <h2 class="card-title">${news.title}</h2>
+            <p>${news.details.slice(0, 500)}...</p>
+                <div class = "flex flex-row gap-4">
+                  <img class = "w-10 h-10 rounded-full" src="${ news.author.img}"/>
+                    <div>
+                      <P>${news.author.name ? news.author.name : 'No data found'}</P>
+                    </div>
+                </div>
+          </div>
+      </div>
+        <div class="modal-action">
+          <label for="my-modal" class="btn">Yay!</label>
+        </div>
+      </div>
+    </div>
+        `;
+  })
+  
 }
 
 loadCategory();
