@@ -30,6 +30,10 @@ const loadNews = (id) => {
 
 const displayNews = (items) => {
   
+  items.sort(function(a,b){
+    return a.total_view - b.total_view;
+  })
+  
   items.forEach((item) => {
     console.log(item);
     const itemsNumber = document.getElementById('items-number')
@@ -56,7 +60,7 @@ const displayNews = (items) => {
                   <P>${item.author.name ? item.author.name : 'No data found'}</P>
                   <P>${item.author.published_date ? item.author.published_date : 'no data found'}</P>
                 </div>
-                <p><i class="fa-regular fa-eye"></i> ${item.total_view}</p>
+                <p><i class="fa-regular fa-eye"></i> ${item.total_view ? item.total_view : 'no data found'}</p>
                 <div class= "flex gap-2">
                   <p> <i class ="fa-solid fa-star"> </i></p>
                   <p> <i class ="fa-solid fa-star"> </i></p>
