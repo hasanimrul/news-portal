@@ -110,13 +110,6 @@ const showItemDetails = (news) =>{
   modalTitle.innerText = news[0].title;
   const modalDescription = document.getElementById('modal-description');
   modalDescription.innerText = news[0].details;
-  const modalImage = document.getElementById('modal-img');
-  modalImage.
-
-  // newsDetails.forEach(news =>{
-  //   console.log(news);
-
-  //   })
   
 }
 
