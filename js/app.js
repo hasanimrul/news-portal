@@ -106,11 +106,25 @@ const loadItemDetails = (newsId) =>{
 
 const showItemDetails = (news) =>{
   console.log(news);
-  const modalTitle = document.getElementById('modal-title');
-  modalTitle.innerText = news[0].title;
-  const modalDescription = document.getElementById('modal-description');
-  modalDescription.innerText = news[0].details;
-  
+  const modalBody = document.getElementById('modal-body');
+  modalBody.innerHTML =  `
+  <div class="card card-side bg-base-100 shadow-xl">
+  <figure><img class="w-60 h-60 p-4" src="${news[0].image_url}"></figure>
+  <div class="card-body">
+    <h2 class="card-title">${news[0].title}</h2>
+    <p>${news[0].details.slice(0, 300)}...</p>
+        <div class = "flex flex-row gap-4">
+          <img class = "w-10 h-10 rounded-full" src="${ news[0].author.img}"/>
+            <div>
+              <P>${news[0].author.name ? news[0].author.name : 'No data found'}</P>
+              <P>${news[0].author.published_date ? news[0].author.published_date : 'no data found'}</P>
+            </div>
+            <p><i class="fa-regular fa-eye"></i> ${news[0].total_view ? news[0].total_view : 'no data found'}</p>
+            
+        </div>
+  </div>
+</div>
+  `;
 }
 
 loadCategory();
