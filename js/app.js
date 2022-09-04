@@ -71,7 +71,7 @@ const displayNews = (items) => {
                   <p> <i class ="fa-solid fa-star-half-stroke"> </i></p>
                 </div>
                  
-                <label for="my-modal-5" class="btn modal-button" onclick="('${showItemDetails}')">See Details</label>
+                <label for="my-modal-5" class="btn modal-button" onclick="loadItemDetails('${item._id}')">See Details</label>
                 
             </div>
       </div>
@@ -104,10 +104,14 @@ const loadItemDetails = (newsId) =>{
   .catch(error => console.log(error))
 };
 
-const showItemDetails = (newsDetails) =>{
-  console.log(newsdetails);
+const showItemDetails = (news) =>{
+  console.log(news);
   const modalTitle = document.getElementById('modal-title');
-  modalTitle.innerText = newsDetails.title;
+  modalTitle.innerText = news[0].title;
+  const modalDescription = document.getElementById('modal-description');
+  modalDescription.innerText = news[0].details;
+  const modalImage = document.getElementById('modal-img');
+  modalImage.
 
   // newsDetails.forEach(news =>{
   //   console.log(news);
