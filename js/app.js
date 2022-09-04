@@ -120,10 +120,12 @@ const showItemDetails = (news) =>{
               <P>${news[0].author.published_date ? news[0].author.published_date : 'no data found'}</P>
             </div>
             <p><i class="fa-regular fa-eye"></i> ${news[0].total_view ? news[0].total_view : 'no data found'}</p>
-            
         </div>
   </div>
 </div>
+<div class="modal-action">
+            <label for="my-modal-5" class="btn">close!</label>
+          </div>
   `;
 }
 
