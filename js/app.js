@@ -70,7 +70,9 @@ const displayNews = (items) => {
                   <p> <i class ="fa-solid fa-star"> </i></p>
                   <p> <i class ="fa-solid fa-star-half-stroke"> </i></p>
                 </div>
-                <p class = "text-right text-5xl"><i class="fa-solid fa-arrow-right"></i></p>
+                 
+                <label for="my-modal-5" class="btn modal-button" onclick="('${showItemDetails}')">See Details</label>
+                
             </div>
       </div>
   </div>
@@ -103,13 +105,14 @@ const loadItemDetails = (newsId) =>{
 };
 
 const showItemDetails = (newsDetails) =>{
-  newsDetails.forEach(news =>{
-    console.log(news);
-    const modal = document.getElementById('modal');
-    modal.innerHTML = `
-    
-        `;
-  })
+  console.log(newsdetails);
+  const modalTitle = document.getElementById('modal-title');
+  modalTitle.innerText = newsDetails.title;
+
+  // newsDetails.forEach(news =>{
+  //   console.log(news);
+
+  //   })
   
 }
 
